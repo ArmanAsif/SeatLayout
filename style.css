@@ -1,11 +1,35 @@
 :root {
-	--primary-color: #1f93ff;
-	--secondary-color: #84049e;
-	--third-color: #ffacac;
-	--fourth-color: #5cc989;
-	--fifth-color: #018686;
-	--sixth-color: #ffffff;
-	--seventh-color: #bd0350;
+	--white-main: #ffffff;
+	--black-main: #000000;
+	--blue-main: #1f93ff;
+	--purple-main: #8f05aa;
+	--green-main: #027934;
+	--red-main: #c41d1d;
+	--pink-main: #d1085c;
+	--gray-main: #434849;
+	--yellow-main: #f3cf06;
+
+	--white-light: #ebf0f3;
+	--black-light: #000000;
+	--blue-light: #bfddfc;
+	--purple-light: #84049e;
+	--green-light: #adfdce;
+	--red-light: #ff0000;
+	--pink-light: #f00868;
+	--gray-light: #9da0aa;
+	--yellow-light: #f3cf06;
+
+	--white-dark: #c5d5e0;
+	--black-dark: #000000;
+	--blue-dark: #1f93ff;
+	--purple-dark: #600472;
+	--green-dark: #006d2d;
+	--red-dark: #7a0000;
+	--pink-dark: #bd0350;
+	--gray-dark: #8a8080;
+	--yellow-dark: #f3cf06;
+
+	--box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 * {
 	padding: 0;
@@ -21,10 +45,7 @@
 	height: 100%;
 	display: flex;
 	justify-content: space-between;
-	background: linear-gradient(
-		rgba(199, 129, 164, 0.5),
-		rgba(194, 208, 255, 0.678)
-	);
+	background: var(--white-light);
 }
 @media (max-width: 768px) {
 	.container {
@@ -32,22 +53,6 @@
 	}
 }
 /* ---------------------------- End OF Cointainer -----------------------------*/
-
-/* ---------------------------- End OF Background Image -----------------------------*/
-.background-img {
-	width: 35vw;
-	height: 100vh;
-}
-.background-img img {
-	width: 100%;
-	height: 100%;
-}
-@media (max-width: 768px) {
-	.background-img {
-		width: 100%;
-	}
-}
-/* ---------------------------- End OF Background Image -----------------------------*/
 
 /* ---------------------------- Seat Layout -----------------------------*/
 .seat-layout {
@@ -72,39 +77,41 @@
 .seat {
 	width: 3rem;
 	height: 3rem;
-	background: var(--sixth-color);
+	border: none;
+	background: var(--white-main);
 	font-size: 1rem;
-	color: var(--secondary-color);
+	color: var(--black-main);
 	font-weight: 700;
-	border: 3px solid var(--fifth-color);
 	border-radius: 50%;
 	display: inline-block;
 	cursor: pointer;
 	transition: all 0.3s linear;
+	box-shadow: 1px 1px 1px 1px var(--gray-main);
 }
 .seat:hover {
-	background: var(--secondary-color);
-	color: var(--sixth-color);
+	background: var(--pink-main);
+	color: var(--white-main);
 }
 .seat-booked {
-	background: var(--third-color);
-	color: var(--secondary-color);
+	background: var(--red-main);
+	color: var(--white-main);
 }
 .seat-booked:hover {
-	background: var(--third-color);
-	color: var(--secondary-color);
+	background: var(--red-main);
+	color: var(--white-main);
 }
 .user-seat {
-	background: var(--fourth-color);
-	color: var(--sixth-color);
+	background: var(--green-main);
+	color: var(--white-light);
 }
 .user-seat:hover {
-	background: var(--fourth-color);
+	background: var(--green-main);
 }
 @media (max-width: 768px) {
 	.seat-layout {
 		width: 100vw;
-		height: 90vh;
+		height: 100vh;
+		margin-bottom: 5rem;
 	}
 }
 /* ---------------------------- End OF Seat Layout -----------------------------*/
@@ -112,40 +119,49 @@
 /* ---------------------------- Bus Info -----------------------------*/
 .info {
 	width: 25vw;
+	margin-right: 5rem;
 }
 .info h2 {
 	font-size: 1.2rem;
 	font-weight: 600;
-	color: var(--seventh-color);
+	color: var(--black-main);
 }
 @media (max-width: 768px) {
 	.info {
 		width: 100vw;
-		margin-bottom: 3rem;
+		margin-bottom: 5rem;
 	}
 }
 /* ---------------------------- End OF Bus Info -----------------------------*/
 
 /* ---------------------------- Infobar -----------------------------*/
 .infobar {
+	width: 100%;
+	height: 5rem;
+	margin: 0 auto;
+	margin-top: 4rem;
+	display: flex;
 	text-align: center;
-	font-size: 1rem;
-	margin: 3.5rem auto 0;
+	align-items: center;
+	justify-content: space-evenly;
+	background: var(--blue-light);
+	border-radius: 0.2rem;
+	box-shadow: var(--box-shadow);
 }
-.show-message {
-	font-size: 1rem;
-	font-weight: 500;
-	margin: 0.5rem auto 0;
-	padding: 0.3rem 0;
-	width: 13rem;
-	height: 2rem;
-	color: var(--sixth-color);
-	background: var(--seventh-color);
-	border-radius: 0.7rem;
-	visibility: hidden;
+.ticket-price p {
+	width: 5rem;
+	font-weight: 600;
+	font-size: 1.3rem;
 }
-.active {
-	visibility: visible;
+.info-margin {
+	height: 70%;
+	width: 0.3rem;
+	background: var(--blue-main);
+}
+.total-pay p {
+	width: 5rem;
+	font-weight: 600;
+	font-size: 1.3rem;
 }
 @media (max-width: 768px) {
 	.infobar {
@@ -154,61 +170,121 @@
 }
 /* ---------------------------- End OF Infobar -----------------------------*/
 
-/* ---------------------------- Bus font -----------------------------*/
-.bus-font {
+/* ---------------------------- Show Message -----------------------------*/
+.show-message {
+	margin: 2rem auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 500;
 	width: 13rem;
-	height: 7rem;
-	margin: 0 auto 0.5rem;
-	font-size: 5rem;
-	text-align: center;
-	color: var(--secondary-color);
+	height: 2rem;
+	color: var(--white-main);
+	background: var(--green-main);
+	border-radius: 0.15rem;
+	box-shadow: var(--box-shadow);
+	visibility: hidden;
 }
-/* ---------------------------- End OF Bus font -----------------------------*/
+.message-active {
+	visibility: visible;
+}
+/* ---------------------------- End OF Show Message -----------------------------*/
 
 /* ---------------------------- Infopay -----------------------------*/
 .infopay {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	text-align: center;
 }
-.checkout {
-	margin-top: 0.5rem;
-	cursor: pointer;
-	border: none;
-	text-decoration: none;
-	background: var(--secondary-color);
-	color: var(--sixth-color);
-	font-size: 1rem;
-	font-weight: 600;
-	padding: 0.15rem 0.6rem;
-	border: 1.5px solid var(--secondary-color);
-	border-radius: 0.7rem;
-	transition: all 0.3s linear;
-}
-.checkout:hover {
-	background: var(--sixth-color);
-	color: var(--seventh-color);
+.total-tickets {
+	width: 15rem;
+	height: 3rem;
+	font-size: 1.3rem;
+	font-weight: 700;
+	margin: 0 auto;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	color: var(--green-dark);
+	background: var(--blue-light);
+	border-radius: 0.15rem;
+	box-shadow: var(--box-shadow);
 }
 .ticket-list {
 	width: 10rem;
 	margin: 0.5rem auto;
 }
 .ticket-row {
+	width: 100%;
+	height: 2rem;
 	display: flex;
+	font-weight: 500;
+	align-items: center;
 	justify-content: space-between;
 	padding: 0 1.5rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.3rem;
+	border-bottom: 1px solid var(--gray-light);
 }
 .btn-remove {
 	cursor: pointer;
 	border: none;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: 500;
 	text-decoration: none;
 	background: none;
-	color: var(--seventh-color);
+	color: var(--black-main);
 	transition: all 0.3s linear;
 }
 .btn-remove:hover {
-	color: var(--fifth-color);
+	color: var(--red-main);
+}
+.checkout {
+	margin-top: 1rem;
+	cursor: pointer;
+	border: none;
+	text-decoration: none;
+	background: var(--purple-main);
+	color: var(--white-light);
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.15rem 0.6rem;
+	box-shadow: var(--box-shadow);
+	letter-spacing: 1.5px;
+	border-radius: 0.2rem;
+	transition: all 0.3s linear;
+}
+.checkout:hover {
+	background: var(--green-main);
 }
 /* ---------------------------- End OF Infopay -----------------------------*/
+
+/* ---------------------------- End OF Background Image -----------------------------*/
+.bus-img {
+	width: 30vw;
+	height: 100vh;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	background: url("./images/bus-interior.jpg") center/cover no-repeat;
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.bus-img-info {
+	margin-top: 5rem;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.bus-img-wish {
+	margin-top: 8rem;
+	font-size: 2rem;
+	font-weight: 700;
+}
+@media (max-width: 768px) {
+	.bus-img {
+		width: 100%;
+	}
+}
+/* ---------------------------- End OF Background Image -----------------------------*/

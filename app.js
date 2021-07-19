@@ -5,7 +5,7 @@ const currentTotalVacantSeat = document.querySelector(".vacant-seats");
 const currentUserTotalTicket = document.querySelector(".total-tickets");
 const showCurrentMessage = document.querySelector(".show-message");
 
-let bookedSeats = [05, 06, 10, 15, 18, 19, 20, 23, 26, 30, 34, 40, 43, 44];
+let bookedSeats = [1, 2, 5, 6, 7, 8, 11, 12, 17, 18, 23, 24, 25, 26];
 
 class MAIN {
 	currentTotalVacantSeat() {
@@ -23,10 +23,17 @@ class MAIN {
 		currentUserTotalTicket.innerHTML = "";
 		const tickets = bookedSeats.length - 14;
 		const div = document.createElement("div");
+		const num = tickets < 10 && tickets > 0 ? "0" + tickets : tickets;
 
-		div.innerHTML = `
-			<p>You Added ${tickets} Tickets</p>
-		`;
+		if (num === 0) {
+			div.innerHTML = `
+				<p>Empty Ticket List</p>
+			`;
+		} else {
+			div.innerHTML = `
+				<p>Added ${num} Ticket</p>
+			`;
+		}
 		currentUserTotalTicket.appendChild(div);
 	}
 
@@ -36,7 +43,7 @@ class MAIN {
 		const div = document.createElement("div");
 
 		div.innerHTML = `
-			<p>${tickets} X 500 = ${tickets * 500} BDT</p>
+			<p>${tickets * 500} BDT</p>
 		`;
 		totalAmountToPay.appendChild(div);
 	}
@@ -80,7 +87,7 @@ class MAIN {
 		div.innerHTML = `
 			<p>${id}</p>
 			<button class="btn-remove" data-id=${id}>
-				<i class="fas fa-trash" data-id=${id}></i>
+				<i class="far fa-times-circle" data-id=${id}></i>
 			</button>
 		`;
 
@@ -122,11 +129,18 @@ class MAIN {
 	}
 
 	showCurrentMessage(string) {
-		showCurrentMessage.classList.add("active");
+		const div = document.createElement("div");
+		div.innerHTML = `
+			<p>${string}</p>
+		`;
+
+		showCurrentMessage.appendChild(div);
+		showCurrentMessage.classList.add("message-active");
 		showCurrentMessage.innerHTML = string;
 
 		setTimeout(() => {
-			showCurrentMessage.classList.remove("active");
+			showCurrentMessage.classList.remove("message-active");
+			showCurrentMessage.innerHTML = "";
 		}, 1000);
 	}
 }
